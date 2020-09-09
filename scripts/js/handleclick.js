@@ -21,7 +21,8 @@ function handlesubmit() {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          document.querySelector(".calculator-screen").value = this.responseText;
+          calculator.displayValue = this.responseText;
+          updateDisplay();
         }
       };
       xmlhttp.open("GET", "scripts/index.php?expression=" +  encodeURIComponent(calculator.displayValue), true);
